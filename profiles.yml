@@ -1,0 +1,6 @@
+jaffle_shop:
+  outputs:
+    dev:
+      type: duckdb
+      path: ./dbt.duckdb
+  target: dev

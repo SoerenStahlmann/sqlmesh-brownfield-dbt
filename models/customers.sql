@@ -1,3 +1,9 @@
+{{
+    config(
+        post_hook = "{{ dump_as_parquet(this) }}"
+    )
+}}
+
 with customers as (
 
     select * from {{ ref('stg_customers') }}
@@ -50,7 +56,6 @@ final as (
     select
         customers.customer_id,
         customers.first_name,
-        customers.last_name,
         customer_orders.first_order,
         customer_orders.most_recent_order,
         customer_orders.number_of_orders,

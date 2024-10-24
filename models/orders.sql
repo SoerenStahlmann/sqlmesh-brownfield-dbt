@@ -1,9 +1,23 @@
+{{
+    config(
+        materialized='incremental',
+        post_hook = "{{ dump_as_parquet(this) }}",
+        unique_key='order_id'
+    )
+}}
+
 {% set payment_methods = ['credit_card', 'coupon', 'bank_transfer', 'gift_card'] %}
 
 with orders as (
 
     select * from {{ ref('stg_orders') }}
 
+    {% if sqlmesh_incremental is defined %}
+        where
+        order_date BETWEEN '{{ start_ds }}' AND '{{ end_ds }}'
+    {% elif is_incremental() %}
+        where order_date > (select max(order_date) from {{ this }})
+    {% endif %}
 ),
 
 payments as (

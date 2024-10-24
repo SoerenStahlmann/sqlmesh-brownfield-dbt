@@ -1,7 +1,4 @@
-> [!IMPORTANT]
-> This repo is no longer actively maintained. It’s been preserved for continuity and free access. The Jaffle Shop has lived a rich life as dbt’s demo project, but has been superseded by two newer repositories: [`jaffle-shop`](https://github.com/dbt-labs/jaffle-shop), the premier demo project for dbt Cloud, and [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) which supports working locally via DuckDB for those without access to a cloud warehouse. You’re welcome to continue using this repo as an open source resource, just know it will not be actively maintained moving forward.
-
-## Testing dbt project: `jaffle_shop`
+## Testing dbt/sqlmesh integration project
 
 `jaffle_shop` is a fictional ecommerce store. This dbt project transforms raw data from an app database into a customers and orders model ready for analytics.
 
@@ -70,12 +67,7 @@ $ dbt docs generate
 $ dbt docs serve
 ```
 
-### What is a jaffle?
-A jaffle is a toasted sandwich with crimped, sealed edges. Invented in Bondi in 1949, the humble jaffle is an Australian classic. The sealed edges allow jaffle-eaters to enjoy liquid fillings inside the sandwich, which reach temperatures close to the core of the earth during cooking. Often consumed at home after a night out, the most classic filling is tinned spaghetti, while my personal favourite is leftover beef stew with melted cheese.
-
----
-For more information on dbt:
-- Read the [introduction to dbt](https://docs.getdbt.com/docs/introduction).
-- Read the [dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint).
-- Join the [dbt community](http://community.getdbt.com/).
----
+11. Run sqlmesh
+```bash
+$ sqlmesh ui
+```
